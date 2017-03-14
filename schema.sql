@@ -15,4 +15,5 @@ CREATE TABLE tasks(
   estimated_time TIME, --hours/min/sec, between 0 & 1 day
   time_begun TIMESTAMP,
   time_completed TIMESTAMP
+  user_id INTEGER;
 );

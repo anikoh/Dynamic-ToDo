@@ -6,7 +6,17 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
 <body>
+  <% if User.find_by(id: session[:user_id]) %>
+  logged in as <%= User.find(session[:user_id]).email %>
+  <form class="" action="/session" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button >logout</button>
+  </form>
+  <% end %>
+
 
   <%= yield %>
 
 </body>
+
+</html>
