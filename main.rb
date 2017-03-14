@@ -69,6 +69,16 @@ get '/edit_task/:id' do
   erb :edit_task
 end
 
+# gets the form to generate a to do list
+get '/list_form' do
+  erb :list_form
+end
+
+get '/completed_tasks' do
+  @completed_tasks = Task.where(user_id: current_user.id).where(completed: true)
+  erb :completed_tasks
+end
+
 #creates a new task
 # redirects to index if successful, stay on page if not
 post '/new_task' do
@@ -99,6 +109,15 @@ delete '/delete_task/:id' do
   task = Task.find(params[:id])
   task.destroy
   redirect '/'
+end
+
+
+# dynamically generates to do list
+post '/generate_form' do
+  all_tasks = Task.where(user_id: current_user.id)
+   @todo_list = all_tasks
+
+  erb :generated_list
 end
 
 # logs in the user if they are in the database, redirects to index

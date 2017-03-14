@@ -1,0 +1,9 @@
+
+
+<% if @completed_tasks %>
+  <% @completed_tasks.each do |task| %>
+    <h2>
+      <%=task.name %>
+    </h2>
+  <% end %>
+<% end %>
