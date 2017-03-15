@@ -1,16 +1,83 @@
 
-<% if @current_tasks %>
-  <% @current_tasks.each do |task| %>
-    <h2>
-      <%=task.name %>
-    </h2>
-    <h2>
-      <a href ="/edit_task/<%= task.id %>" >edit</a>
-    </h2>
 
-  <% end %>
-<% end %>
-<a href="/new_task">New Task</a>
+<div class="section">
+  <ul>
+    <% if @current_categories %>
+      <% @current_categories.each do |category| %>
+      <!-- if the category is selected, highlight it-->
+        <% if category == @current_category %>
+          <li class="current">
+        <% else %>
+          <li>
+        <% end %>
+          <a href="/?c=<%=category.id %>"> <%=category.name %> </a>
+          <a href ="/edit_category/<%= category.id %>" >edit</a>
+        </li>
+
+      <% end %>
+    <% end %>
+
+    <li>
+      <a href="/new_category">New Category</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="section">
+  <ul>
+    <% if @current_projects %>
+      <% @current_projects.each do |project| %>
+      <!-- if the project is selected, highlight it-->
+        <% if project == @current_project %>
+          <li class="current">
+        <% else %>
+          <li>
+        <% end %>
+          <a href="/?c=<%=project.category.id%>&p=<%=project.id %>"> <%=project.name %> </a>
+          <a href ="/edit_project/<%= project.id %>" >edit</a>
+        </li>
+
+      <% end %>
+    <% end %>
+
+    <% if @current_category %>
+      <li>
+        <a href="/new_project/?c=<%=@current_category.id %>">New Project</a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+
+<div class="section">
+  <ul>
+    <% if @current_tasks %>
+      <% @current_tasks.each do |task| %>
+        <li>
+          <%=task.name %>
+          <a href ="/edit_task/<%= task.id %>" >edit</a>
+        </li>
+
+      <% end %>
+    <% end %>
+
+    <%if @current_project %>
+      <li>
+        <a href="/new_task/?p=<%=@current_project.id %>">New Task</a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
 
 <a href="/list_form">Create To Do List</a>
 

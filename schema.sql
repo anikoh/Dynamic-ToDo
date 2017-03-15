@@ -6,14 +6,34 @@ CREATE TABLE users(
 
 
 
+CREATE TABLE categories(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(400) NOT NULL,
+  importance INTEGER,
+  user_id INTEGER
+);
+
+
+CREATE TABLE projects(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(400) NOT NULL,
+  importance INTEGER,
+  urgency INTEGER,
+  category_id INTEGER
+);
+
+
+
+
 CREATE TABLE tasks(
   id  SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL,
   importance INTEGER,
   urgency INTEGER,
   completed BOOLEAN,
-  estimated_time TIME, --hours/min/sec, between 0 & 1 day
   time_begun TIMESTAMP,
   time_completed TIMESTAMP
   user_id INTEGER;
+  estimated_time INTEGER, --in minutes
+  project_id INTEGER
 );

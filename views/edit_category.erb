@@ -1,0 +1,16 @@
+<h2>edit category</h2>
+<form class="" action="/edit_category/<%= @category[:id] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="">Category</label>
+  <input type="text" name="name" value="<%= @category[:name] %>">
+  <label for="">Importance</label>
+  <input type="range" name="importance" min="0" max="10" value="<%= @category[:importance] %>" step="1" />
+  <button>update category</button>
+</form>
+
+
+<form action="/delete_category/<%= @category.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+<button>DELETE</button>
+</form>
