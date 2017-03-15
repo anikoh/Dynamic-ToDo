@@ -31,9 +31,9 @@ CREATE TABLE tasks(
   importance INTEGER,
   urgency INTEGER,
   completed BOOLEAN,
-  time_begun TIMESTAMP,
-  time_completed TIMESTAMP
-  user_id INTEGER;
+  user_id INTEGER,
   estimated_time INTEGER, --in minutes
-  project_id INTEGER
+  project_id INTEGER,
+  on_list BOOLEAN
+  score FLOAT,
 );

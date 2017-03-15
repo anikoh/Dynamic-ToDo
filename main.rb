@@ -126,6 +126,9 @@ post '/new_task' do
   task.user_id = current_user.id
   task.project_id = params[:project]
   task.completed = false
+  task.on_list = false
+  task.score = task.urgency + task.importance * 1.5 + task.project.urgency + task.project.importance * 1.5 + task.project.category.importance * 1.5
+
   if task.save
     redirect "/?c=#{task.project.category_id}&p=#{task.project_id}"
   else
@@ -171,6 +174,7 @@ put '/edit_task/:id' do
   task = Task.find(params[:id])
   estimated_time = (params[:hours].to_i * 60) + params[:minutes].to_i
   task.update(name: params[:name], importance: params[:importance], urgency: params[:urgency], estimated_time: estimated_time)
+  task.score = task.urgency + task.importance * 1.5 + task.project.urgency + task.project.importance * 1.5 + task.project.category.importance * 1.5
   task.save
   redirect "/?c=#{task.project.category_id}&p=#{task.project_id}"
 end
@@ -224,13 +228,62 @@ end
 
 
 
-# dynamically generates to do list
-post '/generate_form' do
-  all_tasks = Task.where(user_id: current_user.id)
-   @todo_list = all_tasks
 
-  erb :generated_list
+
+
+# dynamically generates to do list, redirects to the list page
+post '/generate_list' do
+  scored_tasks = Task.where(user_id: current_user.id).where(completed: false).order('score DESC')
+  time = (params[:hours].to_i * 60) + params[:minutes].to_i
+  todo_time = 0
+
+  scored_tasks.each do |task|
+    if (task.estimated_time + todo_time) < time
+      task.on_list = true
+      task.save
+      todo_time += task.estimated_time
+    end
+  end
+
+  redirect '/generated_list/'
 end
+
+
+# generated list page, updates when items are ticked off
+# redirects to index once the list is empty
+get '/generated_list/' do
+
+  if params[:id]
+    task = Task.find(params[:id])
+    task.completed = true;
+    task.on_list = false
+    task.save
+  end
+
+  @todo_list = Task.where(user_id: current_user.id).where('on_list is true')
+
+  if  @todo_list.length == 0
+    redirect '/'
+  else
+    erb :generated_list
+  end
+
+end
+
+# delete the to do list by setting all task's on_list toggle to false,
+#redirect to index
+post '/delete_list' do
+  Task.update_all(on_list: false)
+  # also can be chained!!!
+  #User.where(name: "Robbie").update_all(name: "Rob")
+  redirect '/'
+end
+
+
+
+
+
+
 
 # logs in the user if they are in the database, redirects to index
 # otherwise stays on login page
