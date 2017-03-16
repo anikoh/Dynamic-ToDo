@@ -1,7 +1,8 @@
 
 
-<div class="section">
+<div class="list">
   <ul>
+    <li class="heading">Categories</li>
     <% if @current_categories %>
       <% @current_categories.each do |category| %>
       <!-- if the category is selected, highlight it-->
@@ -11,14 +12,14 @@
           <li>
         <% end %>
           <a href="/?c=<%=category.id %>"> <%=category.name %> </a>
-          <a href ="/edit_category/<%= category.id %>" >edit</a>
+          <a href ="/edit_category/<%= category.id %>" ><img src="/images/edit.svg" alt="edit" class="icon"></a>
         </li>
 
       <% end %>
     <% end %>
 
     <li>
-      <a href="/new_category">New Category</a>
+      <a href="/new_category"><img src="/images/plus.svg" alt="new" class="icon"> Category</a>
     </li>
   </ul>
 </div>
@@ -28,8 +29,9 @@
 
 
 
-<div class="section">
+<div class="list">
   <ul>
+    <li class="heading">Projects</li>
     <% if @current_projects %>
       <% @current_projects.each do |project| %>
       <!-- if the project is selected, highlight it-->
@@ -39,7 +41,7 @@
           <li>
         <% end %>
           <a href="/?c=<%=project.category.id%>&p=<%=project.id %>"> <%=project.name %> </a>
-          <a href ="/edit_project/<%= project.id %>" >edit</a>
+          <a href ="/edit_project/<%= project.id %>" ><img src="/images/edit.svg" alt="edit" class="icon"></a>
         </li>
 
       <% end %>
@@ -47,7 +49,7 @@
 
     <% if @current_category %>
       <li>
-        <a href="/new_project/?c=<%=@current_category.id %>">New Project</a>
+        <a href="/new_project/?c=<%=@current_category.id %>"><img src="/images/plus.svg" alt="new" class="icon"> Project</a>
       </li>
     <% end %>
   </ul>
@@ -57,13 +59,14 @@
 
 
 
-<div class="section">
+<div class="list">
   <ul>
+    <li class="heading">Tasks</li>
     <% if @current_tasks %>
       <% @current_tasks.each do |task| %>
         <li>
           <%=task.name %>
-          <a href ="/edit_task/<%= task.id %>" >edit</a>
+          <a href ="/edit_task/<%= task.id %>" ><img src="/images/edit.svg" alt="edit" class="icon"></a>
         </li>
 
       <% end %>
@@ -71,14 +74,17 @@
 
     <%if @current_project %>
       <li>
-        <a href="/new_task/?p=<%=@current_project.id %>">New Task</a>
+        <a href="/new_task/?p=<%=@current_project.id %>"><img src="/images/plus.svg" alt="new" class="icon"> Task</a>
       </li>
     <% end %>
   </ul>
 </div>
 
 
+<div class="links">
 
 <a href="/list_form">Create To Do List</a>
 
 <a href="/completed_tasks">Show Completed Tasks</a>
+
+</div>

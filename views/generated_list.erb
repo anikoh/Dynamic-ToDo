@@ -1,13 +1,14 @@
 
 
+<div class="list">
 
 <ul>
-
+  <li class="heading">To Do List </li>
   <% if @todo_list %>
     <% @todo_list.each do |todo| %>
       <li>
         <%=todo.name %>
-        <a href ="/generated_list/?id=<%= todo.id %>" >done!</a>
+        <a href ="/generated_list/?id=<%= todo.id %>" ><img src="/images/check.svg" alt="done" class="icon"></a>
       </li>
 
     <% end %>
@@ -15,7 +16,7 @@
 
 </ul>
 
-
+</div>
 
 <form action="/delete_list" method="post">
 <button>End session</button>

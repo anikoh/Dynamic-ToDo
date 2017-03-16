@@ -1,8 +1,92 @@
 
 body {
-  background-color: lightblue;
+  background-color: #eff2f7;
+  font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.list {
+  display: inline-block;
+  vertical-align: top;
+  clear: both;
+  width: 32%;
+  margin: 0.5%;
+  background-color: white;
+  /*border: 1px solid white;
+  border-radius: 5px;*/
+}
+
+.input {
+  display: inline-block;
+  vertical-align: top;
+  clear: both;
+  width: 25%;
+  margin: 1%;
+  background-color: white;
+  padding: 4% 1%;
+  line-height: 3;
+}
+
+.input h2 {
+  margin: 0;
+}
+
+.links {
+  /*display: block;*/
+}
+
+.heading {
+  background-color: #351a5b;
+  color: white;
 }
 
 .current {
-  background-color: cornflowerblue;
+  background-color: #72b0cc;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 6% 3% 6% 10%;
+  border-bottom: 1px solid lightgrey;
+  text-align: left;
+}
+
+/*li:hover {
+  background-color: #c6d7f2;
+}*/
+
+.icon {
+  width: 20px;
+  height: 20px;
+  text-align: right;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+
+a:active {
+    color: black;
 }

@@ -1,23 +1,29 @@
-<h2>edit task</h2>
-
-<form class="" action="/edit_task/<%= @task[:id] %>" method="post">
-  <input type="hidden" name="_method" value="put">
-
-  <label for="">Task</label>
-  <input type="text" name="name" value="<%= @task[:name] %>">
-  <label for="">Importance</label>
-  <input type="range" name="importance" min="0" max="10" value="<%= @task[:importance] %>" step="1" />
-  <label for="">Urgency</label>
-  <input type="range" name="urgency" min="0" max="10" value="<%= @task[:urgency] %>" step="1" />
-  <label for="">Estimated Time</label>
-  <!-- <input type="time" name="time" min="00:00" max="23:50" step="10" />  -->
-  <input type="number" name ="hours" min="0" max="23" step="1"> hours
-  <input type="number" name ="minutes" min="0" max="50" step="10"> minutes
-  <button>update task</button>
-</form>
 
 
-<form action="/delete_task/<%= @task.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-<button>DELETE</button>
-</form>
+
+<div class="input">
+  <h2>edit task</h2>
+
+  <form class="" action="/edit_task/<%= @task[:id] %>" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <label for="">Task</label>
+    <input type="text" name="name" value="<%= @task[:name] %>">
+    <label for="">Importance</label>
+    <input type="range" name="importance" min="0" max="10" value="<%= @task[:importance] %>" step="1" />
+    <label for="">Urgency</label>
+    <input type="range" name="urgency" min="0" max="10" value="<%= @task[:urgency] %>" step="1" />
+    <label for="">Estimated Time</label>
+    <!-- <input type="time" name="time" min="00:00" max="23:50" step="10" />  -->
+    <input type="number" name ="hours" min="0" max="23" step="1" value="<%= @task[:estimated_time]/60 %>"> hours
+    <input type="number" name ="minutes" min="0" max="50" step="10" value="<%= @task[:estimated_time]%60 %>"> minutes
+    <button>update task</button>
+  </form>
+
+
+  <form action="/delete_task/<%= @task.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+  <button>DELETE</button>
+  </form>
+
+</div>

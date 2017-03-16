@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <title>Hello World</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
-  <% if User.find_by(id: session[:user_id]) %>
-  logged in as <%= User.find(session[:user_id]).email %>
-  <form class="" action="/session" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button >logout</button>
-  </form>
-  <% end %>
+  <div class="wrapper">
 
 
-  <%= yield %>
+    <% if User.find_by(id: session[:user_id]) %>
+    logged in as <%= User.find(session[:user_id]).email %>
+    <form class="" action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button >logout</button>
+    </form>
+    <% end %>
 
+
+    <%= yield %>
+  </div>
 </body>
 
 </html>
