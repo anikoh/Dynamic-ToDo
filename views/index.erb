@@ -9,7 +9,7 @@
         <% if category == @current_category %>
           <li class="current">
         <% else %>
-          <li>
+          <li >
         <% end %>
           <a href="/?c=<%=category.id %>"> <%=category.name %> </a>
           <a href ="/edit_category/<%= category.id %>" ><img src="/images/edit.svg" alt="edit" class="icon"></a>
