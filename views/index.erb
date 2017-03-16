@@ -1,25 +1,24 @@
 
 
-<div class="list">
+<div class="list category">
   <ul>
     <li class="heading">Categories</li>
     <% if @current_categories %>
       <% @current_categories.each do |category| %>
       <!-- if the category is selected, highlight it-->
         <% if category == @current_category %>
-          <li class="current">
+          <li class="current fade_in">
         <% else %>
           <li >
         <% end %>
-          <a href="/?c=<%=category.id %>"> <%=category.name %> </a>
+          <a href="/?c=<%=category.id %>"> <%=category.name %></a>
           <a href ="/edit_category/<%= category.id %>" ><img src="/images/edit.svg" alt="edit" class="icon"></a>
         </li>
-
       <% end %>
     <% end %>
 
     <li>
-      <a href="/new_category"><img src="/images/plus.svg" alt="new" class="icon"> Category</a>
+      <a href="/new_category"><img src="/images/plus.svg" alt="new" class="icon"> New Category</a>
     </li>
   </ul>
 </div>
@@ -29,7 +28,7 @@
 
 
 
-<div class="list">
+<div class="list project">
   <ul>
     <li class="heading">Projects</li>
     <% if @current_projects %>
@@ -49,7 +48,7 @@
 
     <% if @current_category %>
       <li>
-        <a href="/new_project/?c=<%=@current_category.id %>"><img src="/images/plus.svg" alt="new" class="icon"> Project</a>
+        <a href="/new_project/?c=<%=@current_category.id %>"><img src="/images/plus.svg" alt="new" class="icon">New Project</a>
       </li>
     <% end %>
   </ul>
@@ -59,7 +58,7 @@
 
 
 
-<div class="list">
+<div class="list task">
   <ul>
     <li class="heading">Tasks</li>
     <% if @current_tasks %>
@@ -74,7 +73,7 @@
 
     <%if @current_project %>
       <li>
-        <a href="/new_task/?p=<%=@current_project.id %>"><img src="/images/plus.svg" alt="new" class="icon"> Task</a>
+        <a href="/new_task/?p=<%=@current_project.id %>"><img src="/images/plus.svg" alt="new" class="icon">New Task</a>
       </li>
     <% end %>
   </ul>
@@ -84,6 +83,8 @@
 <div class="links">
 
 <a href="/list_form">Create To Do List</a>
+
+<a href="/scatter_plot">Scatter Plot</a>
 
 <a href="/completed_tasks">Show Completed Tasks</a>
 

@@ -2,7 +2,46 @@
 body {
   background-color: #eff2f7;
   font-family: 'Raleway', sans-serif;
+  margin: 0;
 }
+
+
+.header {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4f1b38+0,634296+51,567fa5+100 */
+  background: rgb(79,27,56); /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(79,27,56,1) 0%, rgba(99,66,150,1) 51%, rgba(86,127,165,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(79,27,56,1) 0%,rgba(99,66,150,1) 51%,rgba(86,127,165,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(79,27,56,1) 0%,rgba(99,66,150,1) 51%,rgba(86,127,165,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f1b38', endColorstr='#567fa5',GradientType=1 ); /* IE6-9 */
+
+  height: 70px;
+  margin: 0 0 8% 0;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 15px 0 15px 20px
+}
+
+.user {
+  display: inline-block;
+  float: right;
+  margin: 15px 0 15px 20px
+}
+
+.user h3 {
+display: inline-block;
+margin: 0;
+color: white;
+}
+
+.logo h1 {
+  margin: 0;
+  color: white;
+  font-family: 'Nova Flat', cursive;
+}
+
 
 .wrapper {
   width: 80%;
@@ -25,7 +64,7 @@ body {
   display: inline-block;
   vertical-align: top;
   clear: both;
-  width: 25%;
+  width: 30%;
   margin: 1%;
   background-color: white;
   padding: 4% 1%;
@@ -36,18 +75,77 @@ body {
   margin: 0;
 }
 
+.input.category {
+  border: 2px solid #4f1b38;
+}
+
+.input.category h2 {
+  color: #4f1b38;
+}
+
+.input.project {
+  border: 2px solid #634296;
+}
+
+.input.project h2 {
+  color: #634296;
+}
+
+
+.input.task {
+  border: 2px solid #567fa5;
+}
+
+.input.task h2 {
+  color: #567fa5;
+}
+
 .links {
   /*display: block;*/
 }
 
 .heading {
-  background-color: #351a5b;
   color: white;
 }
 
-.current {
-  background-color: #72b0cc;
+.category .heading {
+  background-color: #4f1b38;
 }
+
+.project .heading {
+  background-color: #634296;
+}
+
+.task .heading {
+  background-color: #567fa5;
+}
+
+.category .current {
+  /*font-weight: 700;*/
+  border-left: 10px solid #4f1b38;
+}
+
+.project .current {
+  border-left: 10px solid #634296;
+}
+
+.task .current {
+  border-left: 10px solid #567fa5;
+}
+
+
+.fade_in {
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -moz-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+/*.category_form {
+  border: 1px solid #4f1b38;
+}
+
+.category_form h2 {
+  color: #4f1b38;
+}*/
 
 
 ul {
@@ -57,14 +155,42 @@ ul {
 }
 
 li {
-  padding: 6% 3% 6% 10%;
+  /*padding: 6% 3% 6% 10%;*/
+  padding: 15px 10px 15px 25px;
   border-bottom: 1px solid lightgrey;
   text-align: left;
+  position: relative;
+  transition: all 0.5s ease;
+  border-left: none;
 }
 
 /*li:hover {
-  background-color: #c6d7f2;
+  font-weight: 700;
 }*/
+
+.category li {
+  border-left: none;
+  transition: all 0.5s ease;
+}
+
+
+.category li:hover {
+  /*background: #edf2f9;*/
+  border-left: 10px solid #4f1b38;
+}
+
+.project li:hover {
+  /*background: #edf2f9;*/
+  border-left: 10px solid #634296;
+  /*padding-left: 10px;*/
+}
+
+.task li:hover {
+  /*background: #edf2f9;*/
+  border-left: 10px solid #567fa5;
+}
+
+
 
 .icon {
   width: 20px;
@@ -72,6 +198,8 @@ li {
   text-align: right;
   margin: 0 5px;
   vertical-align: middle;
+  position: absolute;
+  right: 15px;
 }
 
 
@@ -97,4 +225,29 @@ a:active {
 	-webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	-moz-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+
+
+
+
+/*D3 elements*/
+
+.chart {
+
+}
+
+.main text {
+font: 10px sans-serif;
+}
+
+.axis line, .axis path {
+shape-rendering: crispEdges;
+stroke: black;
+fill: none;
+}
+
+circle {
+fill: #567fa5;
 }

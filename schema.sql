@@ -34,6 +34,6 @@ CREATE TABLE tasks(
   user_id INTEGER,
   estimated_time INTEGER, --in minutes
   project_id INTEGER,
-  on_list BOOLEAN
-  score FLOAT,
+  on_list BOOLEAN,
+  score FLOAT
 );

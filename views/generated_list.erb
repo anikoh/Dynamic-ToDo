@@ -1,14 +1,16 @@
 
 
-<div class="list">
+<div class="list task">
 
 <ul>
   <li class="heading">To Do List </li>
   <% if @todo_list %>
     <% @todo_list.each do |todo| %>
       <li>
-        <%=todo.name %>
-        <a href ="/generated_list/?id=<%= todo.id %>" ><img src="/images/check.svg" alt="done" class="icon"></a>
+        <a href ="/generated_list/?id=<%= todo.id %>" >
+          <%=todo.name %>
+          <img src="/images/check.svg" alt="done" class="icon">
+        </a>
       </li>
 
     <% end %>

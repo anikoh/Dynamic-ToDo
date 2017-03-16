@@ -1,6 +1,6 @@
 # require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pg'
 require_relative 'database_config'
 require_relative 'models/user'
@@ -107,6 +107,18 @@ end
 # gets the form to generate a to do list
 get '/list_form' do
   erb :list_form
+end
+
+get '/scatter_plot' do
+  @data = []
+  Task.all.each do |task|
+    elem =[]
+    elem << task.importance
+    elem << task.urgency
+    @data << elem
+  end 
+
+  erb :scatter_plot
 end
 
 # shows the page of completed tasks
