@@ -6,6 +6,22 @@ body {
 }
 
 
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+
+a:active {
+    color: black;
+}
+
+
 .header {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4f1b38+0,634296+51,567fa5+100 */
   background: rgb(79,27,56); /* Old browsers */
@@ -21,13 +37,13 @@ body {
 .logo {
   display: inline-block;
   vertical-align: middle;
-  margin: 15px 0 15px 20px
+  margin: 15px 0 15px 20px;
 }
 
 .user {
   display: inline-block;
   float: right;
-  margin: 15px 0 15px 20px
+  margin: 15px 25px 15px 0;
 }
 
 .user h3 {
@@ -64,7 +80,6 @@ color: white;
   display: inline-block;
   vertical-align: top;
   clear: both;
-  width: 30%;
   margin: 1%;
   background-color: white;
   padding: 4% 1%;
@@ -77,6 +92,7 @@ color: white;
 
 .input.category {
   border: 2px solid #4f1b38;
+  width: 25%;
 }
 
 .input.category h2 {
@@ -85,6 +101,7 @@ color: white;
 
 .input.project {
   border: 2px solid #634296;
+  width: 25%;
 }
 
 .input.project h2 {
@@ -94,6 +111,7 @@ color: white;
 
 .input.task {
   border: 2px solid #567fa5;
+  width: 30%;
 }
 
 .input.task h2 {
@@ -101,8 +119,15 @@ color: white;
 }
 
 .links {
-  /*display: block;*/
+  display: block;
+  text-align: center;
+  margin-top: 100px;
 }
+
+.field {
+  display: block;
+}
+
 
 .heading {
   color: white;
@@ -134,6 +159,50 @@ color: white;
 }
 
 
+button {
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  /*border-size: 1px;*/
+  padding: 2% 7%;
+}
+
+a.fake_button {
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  border-size: 1px;
+  padding: 8px 15px;
+  margin: 0 1%;
+}
+
+.category.fake_button {
+  background-color: #4f1b38;
+}
+
+.project.fake_button {
+  background-color: #634296;
+}
+
+.task.fake_button {
+  background-color: #567fa5;
+}
+
+.category button {
+  border: 1px solid #4f1b38;
+  background-color: #4f1b38;
+}
+
+.project button {
+  border: 1px solid #634296;
+  background-color: #634296;
+}
+
+.task button {
+  border: 1px solid #567fa5;
+  background-color: #567fa5;
+}
+
 .fade_in {
   -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   -moz-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -146,6 +215,15 @@ color: white;
 .category_form h2 {
   color: #4f1b38;
 }*/
+
+input[type=text] {
+   font-size: 17px;
+}
+
+input[type=password]{
+  font-size: 17px;
+}
+
 
 
 ul {
@@ -204,20 +282,6 @@ li {
 
 
 
-a:link {
-    text-decoration: none;
-    color: black;
-}
-
-a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-
-a:active {
-    color: black;
-}
 
 
 

@@ -5,15 +5,21 @@
 
   <form class="" action="/new_project" method="post">
     <input type="hidden" name="category" value="<%=params[:c]%>">
-    <label for="">Project</label>
-    <input type="text" name="name" value="">
-    <label for="">Importance</label>
-    <input type="range" name="importance" min="0" max="10" value="5" step="1" />
-    <label for="">Urgency</label>
-    <input type="range" name="urgency" min="0" max="10" value="5" step="1" />
+    <div class="field">
+      <label for="">Project</label>
+      <input type="text" name="name" value="">
+    </div>
+    <div class="field">
+      <label for="">Importance</label>
+      <input type="range" name="importance" min="0" max="10" value="5" step="1" />
+    </div>
+    <div class="field">
+      <label for="">Urgency</label>
+      <input type="range" name="urgency" min="0" max="10" value="5" step="1" />
+    </div>
     <button>add</button>
   </form>
 
-  <a href="/">cancel</a>
+  <a class="fake_button project" href="/">cancel</a>
 
 </div>

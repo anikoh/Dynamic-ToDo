@@ -1,9 +1,22 @@
 
+<div class="list task">
 
-<% if @completed_tasks %>
-  <% @completed_tasks.each do |task| %>
-    <h2>
-      <%=task.name %>
-    </h2>
-  <% end %>
-<% end %>
+  <ul>
+    <li class="heading">Completed Tasks </li>
+
+
+    <% if @completed_tasks %>
+      <% @completed_tasks.each do |task| %>
+        <li>
+          <%=task.name %>
+        </li>
+      <% end %>
+    <% end %>
+
+  </ul>
+
+</div>
+
+<div class="links">
+  <a class="fake_button task" href="/">Return</a>
+</div>

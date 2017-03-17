@@ -4,14 +4,18 @@
   <h2>New Category</h2>
 
   <form class="" action="/new_category" method="post">
-    <label for="">Category</label>
-    <input type="text" name="name" value="">
-    <label for="">Importance</label>
-    <input type="range" name="importance" min="0" max="10" value="5" step="1" />
+    <div class="field">
+      <label for="">Category</label>
+      <input type="text" name="name" value="">
+    </div>
+    <div class="field">
+      <label for="">Importance</label>
+      <input type="range" name="importance" min="0" max="10" value="5" step="1" />
+    </div>
     <button>add</button>
   </form>
 
-  <a href="/">cancel</a>
+  <a class="fake_button category" href="/">cancel</a>
 
 
 </div>

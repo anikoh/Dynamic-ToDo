@@ -13,7 +13,7 @@
       <h1>Dynamic ToDo</h1>
     </div>
 
-    <div class="user">
+    <div class="user category">
       <% if User.find_by(id: session[:user_id]) %>
       <h3>
         <%= User.find(session[:user_id]).email %>

@@ -5,13 +5,18 @@
 
   <form class="" action="/edit_project/<%= @project[:id] %>" method="post">
     <input type="hidden" name="_method" value="put">
-
-    <label for="">Project</label>
-    <input type="text" name="name" value="<%= @project[:name] %>">
-    <label for="">Importance</label>
-    <input type="range" name="importance" min="0" max="10" value="<%= @project[:importance] %>" step="1" />
+    <div class="field">
+      <label for="">Project</label>
+      <input type="text" name="name" value="<%= @project[:name] %>">
+    </div>
+    <div class="field">
+      <label for="">Importance</label>
+      <input type="range" name="importance" min="0" max="10" value="<%= @project[:importance] %>" step="1" />
+    </div>
+    <div class="field">
     <label for="">Urgency</label>
     <input type="range" name="urgency" min="0" max="10" value="<%= @project[:urgency] %>" step="1" />
+    </div>
     <button>update project</button>
   </form>
 

@@ -111,12 +111,18 @@ end
 
 get '/scatter_plot' do
   @data = []
-  Task.all.each do |task|
-    elem =[]
-    elem << task.importance
-    elem << task.urgency
-    @data << elem
-  end 
+  # Task.all.each do |task|
+  #   elem =[]
+  #   elem << task.importance
+  #   elem << task.urgency
+  #   @data << elem
+  # end
+
+  current_tasks = Task.where(user_id: current_user.id).where(completed: false)
+  current_tasks.each do |task|
+    @data << task.importance
+    @data << task.urgency
+  end
 
   erb :scatter_plot
 end

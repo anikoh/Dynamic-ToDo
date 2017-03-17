@@ -1,5 +1,17 @@
 
-//document.getElementById(‘hidden field id’).value
+var dataString = document.getElementById('data').value;
+var dataClean = dataString.replace('[', '').replace(']', '').replace(/ /g, '');
+var dataArray = dataClean.split(",")
+var data = []
+
+for (i=0; i< dataArray.length; i+=2){
+  var elem = []
+  var num1 = parseInt(dataArray[i])
+  var num2 = parseInt(dataArray[i+1])
+  elem.push(num1);
+  elem.push(num2);
+  data.push(elem);
+}
 
 //var data =  @data.to_json;
 //console.log (data)
