@@ -62,7 +62,7 @@ To Be Completed for MVPv
 - come up with a non-placeholder product name
 - when deleting categories and projects, also delete the items within
 - message to user when necessary information is not entered
-
+- make it responsive
 
 
 Future Features and Extension
